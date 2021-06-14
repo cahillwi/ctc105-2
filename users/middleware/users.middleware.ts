@@ -7,20 +7,6 @@ const log: debug.IDebugger = debug('app:users-controller');
 //this file contains basic algorithms to ensure items like the email a user is attempting to use to create a user record doesn't already exist
 class UsersMiddleware {
 
-    async validateRequiredUserBodyFields(
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
-    ) {
-        if (req.body && req.body.email && req.body.password) {
-            next();
-        } else {
-            res.status(400).send({
-                error: `Missing required fields email and password`,
-            });
-        }
-    }
-    
     async validateSameEmailDoesntExist(
         req: express.Request,
         res: express.Response,
