@@ -19,6 +19,7 @@ class UsersController {
 
     async getUserById(req: express.Request, res: express.Response) {
         const user = await usersService.readById(req.body.id);
+        log(user);
         res.status(200).send(user);
     }
 
