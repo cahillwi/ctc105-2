@@ -50,6 +50,13 @@ class UsersController {
         log(await usersService.deleteById(req.body.id));
         res.status(204).send();
     }
+    async updatePermissionFlags(req: express.Request, res: express.Response) {
+        const patchUserDto: PatchUserDto = {
+            permissionFlags: parseInt(req.params.permissionFlags),
+        };
+        log(await usersService.patchById(req.body.id, patchUserDto));
+        res.status(204).send();
+    }
 }
 
 export default new UsersController();
