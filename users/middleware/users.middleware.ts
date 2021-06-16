@@ -2,7 +2,7 @@ import express from 'express';
 import userService from '../services/users.service';
 import debug from 'debug';
 
-const log: debug.IDebugger = debug('app:users-controller');
+const log: debug.IDebugger = debug('app:users-Middleware');
 
 //this file contains basic algorithms to ensure items like the email a user is attempting to use to create a user record doesn't already exist
 class UsersMiddleware {
@@ -55,6 +55,7 @@ class UsersMiddleware {
     ) {
         const user = await userService.readById(req.params.userId);
         if (user) {
+            res.locals.user = user;
             next();
         } else {
             res.status(404).send({
@@ -67,7 +68,9 @@ class UsersMiddleware {
         res: express.Response,
         next: express.NextFunction
     ) {
+        log('Body being set to ', req.params.userId);
         req.body.id = req.params.userId;
+        log('Body set to ', req.body.id);
         next();
     }
 }

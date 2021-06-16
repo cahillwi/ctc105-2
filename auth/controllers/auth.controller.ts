@@ -2,6 +2,12 @@ import express from 'express';
 import debug from 'debug';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import dotenv from 'dotenv';
+
+const dotenvResult = dotenv.config();
+if (dotenvResult.error) {
+    throw dotenvResult.error;
+}
 
 const log: debug.IDebugger = debug('app:auth-controller');
 
@@ -13,12 +19,13 @@ const log: debug.IDebugger = debug('app:auth-controller');
 */
 // @ts-expect-error
 const jwtSecret: string = process.env.JWT_SECRET;
+const jwt2: string = process.env.JWT_SECRET as string;
 const tokenExpirationInSeconds = 36000;
 
 class AuthController {
     async createJWT(req: express.Request, res: express.Response) {
         try {
-            const refreshId = req.body.userId + jwtSecret;
+            const refreshId = req.body.userId + 'My!@!Se3cr8tH4sh3';
             const salt = crypto.createSecretKey(crypto.randomBytes(16));
             const hash = crypto
                 .createHmac('sha512', salt)

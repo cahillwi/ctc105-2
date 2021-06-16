@@ -4,6 +4,11 @@ import UsersMiddleware from './middleware/users.middleware';
 import express from 'express';
 import BodyValidationMiddleware from '../common/middleware/body.validation.middleware';
 import { body } from 'express-validator';
+import { log } from 'winston';
+
+import debug from 'debug';
+
+const logger: debug.IDebugger = debug('app:main');
 
 // extend the common route class to leverage all members defined in that class.
 export class UsersRoutes extends CommonRoutesConfig {
@@ -28,6 +33,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             );
 
         this.app.param('userID', UsersMiddleware.extractUserId);
+        logger(this.app.param.toString);
     
         this.app
             .route(`/users/:userId`)
