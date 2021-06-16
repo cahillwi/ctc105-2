@@ -16,6 +16,8 @@ curl --request POST 'localhost:3000/users' --header 'Content-Type: application/j
 - Why is dotenv not being called ahead of authController instantiation?
 - How does next() work? 
     - I don't see the callback being passed in, or I see a bunch of callbacks being passed in.
+- What is locals in res.locals.jwt.permissionFlags I have seen it used in a few places.
+    - I believe res.locals is a cache, can that be chaned out with Redis?
 
 
 wVk5c0BLK
