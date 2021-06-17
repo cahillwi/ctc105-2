@@ -22,7 +22,7 @@ class UsersController {
     async getUserById(req: express.Request, res: express.Response) {
         const user = await usersService.readById(req.params.userId);
         //why is req.body.id null??
-        debug(req.body);
+        //debug(req.body); 
         res.status(200).send(user);
     }
 
@@ -51,12 +51,14 @@ class UsersController {
         res.status(204).send();
     }
     async updatePermissionFlags(req: express.Request, res: express.Response) {
-        const patchUserDto: PatchUserDto = {
-            permissionFlags: parseInt(req.params.permissionFlags),
-        };
-        log(await usersService.patchById(req.body.id, patchUserDto));
-        res.status(204).send();
-    }
+    const patchUserDto: PatchUserDto = {
+        permissionFlags: parseInt(req.params.permissionFlags),
+    };
+    // THIS was the issue for some reason req.body.id is not being set!!!
+    const response = await usersService.patchById(req.params.userId, patchUserDto);
+    log(response);
+    res.status(204).send();
+}
 }
 
 export default new UsersController();

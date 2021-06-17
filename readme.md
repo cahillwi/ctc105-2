@@ -33,6 +33,13 @@ curl --request POST 'localhost:3000/auth' \
     "email":"bill.cahill@toptal.com"
 }'
 
+{
+	"email": "bill.cahill3@toptal.com",
+	"password": "password",
+	"firstName": "bill",
+	"lastName": "Cahill",
+	"permissionFlags": 8
+}
 
 {"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJrMC1ieEdEY24iLCJlbWFpbCI6Im1hcmNvcy5oZW5yaXF1ZUB0b3B0YWwuY29tIiwicGVybWlzc2lvbkZsYWdzIjoxLCJyZWZyZXNoS2V5Ijp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjpbMjEsMTAzLDIwNiwyMzIsMjUyLDIzNSwxNTksMjI2LDc0LDc5LDIxLDIxLDk5LDExNCwxNDksNTVdfSwiaWF0IjoxNjIzODQ0OTEzLCJleHAiOjE2MjM4ODA5MTN9.NXdINECZudSz3hRkCRjf5mKLo9R4vm-5I7_qKCWiDYA","refreshToken":"eqOkeswYfBl0aTGdftpc78bUnHi/qDTydpmpfxoew3nsIPzSRuJjXG9WoPpnGXGvON7cMn9AYvNJMlKBHyXVKA=="}
 REST_API_EXAMPLE_ACCESS="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJrMC1ieEdEY24iLCJlbWFpbCI6Im1hcmNvcy5oZW5yaXF1ZUB0b3B0YWwuY29tIiwicGVybWlzc2lvbkZsYWdzIjoxLCJyZWZyZXNoS2V5Ijp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjpbMjEsMTAzLDIwNiwyMzIsMjUyLDIzNSwxNTksMjI2LDc0LDc5LDIxLDIxLDk5LDExNCwxNDksNTVdfSwiaWF0IjoxNjIzODQ0OTEzLCJleHAiOjE2MjM4ODA5MTN9.NXdINECZudSz3hRkCRjf5mKLo9R4vm-5I7_qKCWiDYA"

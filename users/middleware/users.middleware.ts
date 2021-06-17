@@ -78,11 +78,13 @@ class UsersMiddleware {
         res: express.Response,
         next: express.NextFunction
     ) {
+        const user = await userService.readById(req.params.userId);
+        res.locals.user = user;
         if (
             'permissionFlags' in req.body &&
             req.body.permissionFlags !== res.locals.user.permissionFlags
         ) {
-            res.status(400).send({
+            res.status(403).send({
                 errors: ['User cannot change permission flags'],
             });
         } else {

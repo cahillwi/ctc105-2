@@ -1,14 +1,13 @@
-import {CommonRoutesConfig} from '../common/common.routes.config';
-import UsersController from './controllers/users.controller';
-import UsersMiddleware from './middleware/users.middleware';
-import express from 'express';
-import BodyValidationMiddleware from '../common/middleware/body.validation.middleware';
-import { body } from 'express-validator';
+import {CommonRoutesConfig} from '../common/common.routes.config'; 
+import UsersController from './controllers/users.controller'; 
+import UsersMiddleware from './middleware/users.middleware'; 
+import express from 'express'; 
+import BodyValidationMiddleware from '../common/middleware/body.validation.middleware'; 
+import { body } from 'express-validator'; 
 
-import jwtMiddleware from '../auth/middleware/jwt.middleware';
-import permissionMiddleware from '../common/middleware/common.permission.middleware';
-import { PermissionFlag } from '../common/middleware/common.permissionflag.enum';
-import { log } from 'winston';
+import jwtMiddleware from '../auth/middleware/jwt.middleware'; 
+import permissionMiddleware from '../common/middleware/common.permission.middleware'; 
+import { PermissionFlag } from '../common/middleware/common.permissionflag.enum'; 
 
 import debug from 'debug';
 

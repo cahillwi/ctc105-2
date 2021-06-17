@@ -103,9 +103,9 @@ describe('users and auth endpoints', function () {
                     password: firstUserBody.password,
                     firstName: 'Marcos',
                     lastName: 'Silva',
-                    permissionFlags: 256,
+                    permissionFlags: 2,
                 });
-            expect(res.status).to.equal(400);
+            expect(res.status).to.equal(403);
             expect(res.body.errors).to.be.an('array');
             expect(res.body.errors).to.have.length(1);
             expect(res.body.errors[0]).to.equal(
