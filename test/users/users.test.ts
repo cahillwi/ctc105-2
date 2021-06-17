@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 let firstUserIdTest = '';
 const firstUserBody = {
     email: `marcos.henrique+${shortid.generate()}@toptal.com`,
-    password: 'Sup3rSecret!23',
+    password: 'Sup3rSecret!23'
 };
 
 let accessToken = '';

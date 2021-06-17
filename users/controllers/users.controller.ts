@@ -36,18 +36,19 @@ class UsersController {
         if (req.body.password) {
             req.body.password = await argon2.hash(req.body.password);
         }
-        log(await usersService.patchById(req.body.id, req.body));
+        log(await usersService.patchById(req.params.userId, req.body));
         res.status(204).send();
     }
 
     async put(req: express.Request, res: express.Response) {
         req.body.password = await argon2.hash(req.body.password);
-        log(await usersService.putById(req.body.id, req.body));
+        //ANOTHER one of these issues
+        log(await usersService.putById(req.params.userId, req.body));
         res.status(204).send();
     }
 
     async removeUser(req: express.Request, res: express.Response) {
-        log(await usersService.deleteById(req.body.id));
+        log(await usersService.deleteById(req.params.userId));
         res.status(204).send();
     }
     async updatePermissionFlags(req: express.Request, res: express.Response) {

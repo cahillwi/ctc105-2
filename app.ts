@@ -12,6 +12,7 @@ import cors from 'cors';
 import {CommonRoutesConfig} from './common/common.routes.config';
 import {UsersRoutes} from './users/users.routes.config';
 import { AuthRoutes } from './auth/auth.routes.config';
+import {BlogRoutes} from './blog/blog.routes.config';
 import debug from 'debug';
 
 const app: express.Application = express();
@@ -51,6 +52,7 @@ app.use(expressWinston.logger(loggerOptions));
 // after sending the Express.js application object to have the routes added to our app!
 routes.push(new UsersRoutes(app));
 routes.push(new AuthRoutes(app));
+routes.push(new BlogRoutes(app));
 
 // this is a simple route to make sure everything is working properly
 const runningMessage = `Server running at http://localhost:${port}`;
