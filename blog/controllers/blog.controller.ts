@@ -24,6 +24,10 @@ class BlogController {
         //debug(req.body); 
         res.status(200).send(blog);
     }
+    async getBlogByAuthorId(req: express.Request, res: express.Response) {
+        const blogs = await blogService.getByAuthorID(req.params.authorId, 100, 0);
+        res.status(200).send(blogs);
+    }
 
     async createBlog(req: express.Request, res: express.Response) {
         const blogId = await blogService.create(req.body);

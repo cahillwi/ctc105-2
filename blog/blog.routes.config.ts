@@ -10,6 +10,8 @@ import permissionMiddleware from '../common/middleware/common.permission.middlew
 import { PermissionFlag } from '../common/middleware/common.permissionflag.enum'; 
 
 import debug from 'debug';
+import blogMiddleware from './middleware/blog.middleware';
+import blogController from './controllers/blog.controller';
 
 const logger: debug.IDebugger = debug('app:main');
 
@@ -72,7 +74,13 @@ export class BlogRoutes extends CommonRoutesConfig {
             ),
             BlogController.patch,
         ]);
-    
+
+        this.app.route(`/blog/author/:authorId`)
+            .get(
+                blogMiddleware.validateAuthorExists,
+                blogController.getBlogByAuthorId
+                );
+            
         return this.app;
     }
 }

@@ -7,6 +7,7 @@ import { PermissionFlag } from '../../common/middleware/common.permissionflag.en
 
 import shortid from 'shortid';
 import debug from 'debug';
+import { request } from 'express';
 
 const log: debug.IDebugger = debug('app:blog-dao');
 
@@ -56,6 +57,15 @@ class BlogDao {
             .skip(limit * page)
             .exec();
     }
+    async getBlogsByAuthorID(authorID: string, limit = 25, page = 0) {
+        return this.Blog.find()
+            .where("authorId", authorID)
+            //.select(*)
+            .limit(limit)
+            .skip(limit * page)
+            .exec();
+    }
+
     async updateBlogById(
         blogId: string,
         blogFields: PatchBlogDto | PutBlogDto

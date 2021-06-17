@@ -22,6 +22,9 @@ describe('blog endpoints', function () {
     //         mongoose.connection.close(done);
     //     });
     // });
+    it('should allow Post of new blog', async function () {
+        
+    });
     it('should allow GET to /blog', async function(){
         const res = await request.get(`/blog`).send();
         expect(res.status).to.equal(200);

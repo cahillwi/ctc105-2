@@ -17,6 +17,10 @@ class BlogService implements CRUD {
         return BlogDao.getBlogs(limit, page);
     }
 
+    async getByAuthorID(authorID: string, limit: number, page: number) {
+        return BlogDao.getBlogsByAuthorID(authorID, limit, page);
+    }
+    
     async patchById(id: string, resource: PatchBlogDto) {
         return BlogDao.updateBlogById(id, resource);
     }
