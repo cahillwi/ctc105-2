@@ -30,7 +30,6 @@ export class BlogRoutes extends CommonRoutesConfig {
             .post(
                 jwtMiddleware.validJWTNeeded,
                 BodyValidationMiddleware.verifyBodyFieldsErrors,
-                //BlogMiddleware.validateSameEmailDoesntExist,
                 permissionMiddleware.permissionFlagRequired(
                     PermissionFlag.PAID_PERMISSION
                 ),
